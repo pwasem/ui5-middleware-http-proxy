@@ -4,7 +4,7 @@
 Custom UI5 middleware extension for proxying http requests using [express-http-proxy](https://github.com/villadora/express-http-proxy)
 with additional http basic authentication support.
 
-Useful for proxying request to a remote service from a local development enviroment.
+Useful for proxying requests to a remote service from a local development enviroment.
 
 Works well with [openui5-sdk-docker](https://github.com/pwasem/openui5-sdk-docker).
 
