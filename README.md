@@ -80,7 +80,7 @@ The custom middleware accepts the following configuration options
 
 |    name      |   type  |                Description                | mandatory | default |                        examples                       |
 |:------------:|:-------:|:-----------------------------------------:|:---------:|:-------:|:-----------------------------------------------------:|
-|   debug      | boolean |         enable/disable debug logs         |     no    | `false` |                     `true`, `false                    |
+|   debug      | boolean |         enable/disable debug logs         |     no    | `false` |                     `true`, `false`                   |
 |   baseUrl    |  string |       baseUrl for proxying requests       |    yes    |    -    | `https://services.odata.org`, `http://localhost:5000` |
 |    path      |  string |         path for proxying requests        |     no    |   `/`   |      `/resources`, `/V2/Northwind/Northwind.svc`      |
 |   secure     | boolean |      reject self-signed certificates      |     no    |  `true` |                     `true`, `false`                   |
