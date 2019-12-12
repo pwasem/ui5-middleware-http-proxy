@@ -83,7 +83,7 @@ The custom middleware accepts the following configuration options
 |   debug   | boolean |         enable/disable debug logs         |     no    | `false` |                     `true`, `false                    |
 |    host   |  string |         host for proxying requests        |    yes    |    -    | `https://services.odata.org`, `http://localhost:5000` |
 |    path   |  string |         path for proxying requests        |     no    |   `/`   |      `/resources`, `/V2/Northwind/Northwind.svc`      |
-|   secure  | boolean |      ignore self-signed certificates      |     no    | `false` |                                                       |
+|   secure  | boolean |      reject self-signed certificates      |     no    |  `true` |                     `true`, `false`                   |
 |    auth   |  object | credentials for http basic authentication |     no    |    -    |                                                       |
 | auth.user |  string |     user for http basic authentication    |     no    |    -    |                        `kratos`                       |
 | auth.pass |  string |   password for http basic authentication  |     no    |    -    |                        `atreus`                       |
