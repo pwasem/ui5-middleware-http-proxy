@@ -1,6 +1,6 @@
 {
   "name": "ui5-middleware-http-proxy",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "custom ui5 middleware extension for proxying http requests",
   "keywords": [
     "ui5",
@@ -17,14 +17,15 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@ui5/logger": "^1.0.2",
+    "@ui5/logger": "^2.0.1",
+    "dotenv": "^8.2.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
-    "eslint-config-standard": "^14.1.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^15.0.1",
     "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1"
   }
