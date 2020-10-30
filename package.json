@@ -1,6 +1,6 @@
 {
   "name": "ui5-middleware-http-proxy",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "custom ui5 middleware extension for proxying http requests",
   "keywords": [
     "ui5",
@@ -19,6 +19,7 @@
   "dependencies": {
     "@ui5/logger": "^2.0.1",
     "dotenv": "^8.2.0",
+    "lodash": "^4.17.20",
     "request": "^2.88.0"
   },
   "devDependencies": {
