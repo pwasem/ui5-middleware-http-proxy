@@ -106,12 +106,43 @@ The following environment variables are supported and will be mapped to the give
 
 | Environment Variable   | Configuration Option |
 |:----------------------:|:--------------------:|
+| `HTTP_PROXY_BASE_URL`  | `baseUrl`            |
+| `HTTP_PROXY_IS_SECURE` | `secure`             |
 | `HTTP_PROXY_AUTH_USER` | `auth.user`          |
 | `HTTP_PROXY_AUTH_PASS` | `auth.pass`          |
 
 Example `.env` file:
 
 ```shell
+HTTP_PROXY_BASE_URL=http://localhost:5000
+HTTP_PROXY_IS_SECURE=false
 HTTP_PROXY_AUTH_USER=kratos
 HTTP_PROXY_AUTH_PASS=atreus
+```
+
+#### Specifying `.env` variables directly in the `yaml`-file
+For the following variables it is also possible to specify them directly in the `yaml`-file file.  
+
+- baseUrl
+- secure
+- auth.user
+- auth.pass  
+
+This is possible via the following syntax: `${env.<variable-name>}` 
+
+Example which uses Environment Variables from `.env` file
+```yaml
+server:
+  customMiddleware:
+    # proxy for odata service 
+    - name: ui5-middleware-http-proxy
+      mountPath: /resources
+      afterMiddleware: compression
+      configuration:
+        baseUrl: ${env.MY_ODATA_SERVICE}
+        secure: ${env.MY_ODATA_SERVICE_SECURE}
+        path: /V2/Northwind/Northwind.svc
+          auth: 
+            user: ${env.MY_ODATA_SERVICE_USER}
+            pass: ${env.MY_ODATA_SERVICE_PASS}
 ```
