@@ -115,3 +115,7 @@ Example `.env` file:
 HTTP_PROXY_AUTH_USER=kratos
 HTTP_PROXY_AUTH_PASS=atreus
 ```
+
+## Example app
+
+Please have look at [bookshop-ui](https://github.com/pwasem/bookshop-ui).
