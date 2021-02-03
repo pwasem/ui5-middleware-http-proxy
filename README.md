@@ -95,26 +95,50 @@ The custom middleware accepts the following configuration options:
 |    `path`      |  string |         path for proxying requests        |     no    |   `/`   |      `/resources`, `/V2/Northwind/Northwind.svc`      |
 |   `secure`     | boolean |      reject self-signed certificates      |     no    |  `true` |                     `true`, `false`                   |
 |    `auth`      |  object | credentials for http basic authentication |     no    |    -    |                                                       |
-| `auth.user`    |  string |     user for http basic authentication    |     no    |    -    |                        `kratos`                       |
-| `auth.pass`    |  string |   password for http basic authentication  |     no    |    -    |                        `atreus`                       |
+| `auth.user`    |  string |     user for http basic authentication    |     no    |    -    | `kratos`, `env:HTTP_PROXY_AUTH_USER`                  |
+| `auth.pass`    |  string |   password for http basic authentication  |     no    |    -    | `atreus`, `env:HTTP_PROXY_AUTH_PASS`                  |
 
 #### Support for .env files
 
 Support for `.env` files is provided by the [dotenv](https://github.com/motdotla/dotenv) module.
 
-The following environment variables are supported and will be mapped to the given configuration option:
+Simply prefix your `.env` variables for with `env:` and provide them as `auth.user` and `auth.pass` in your `configuration`.
 
-| Environment Variable   | Configuration Option |
-|:----------------------:|:--------------------:|
-| `HTTP_PROXY_AUTH_USER` | `auth.user`          |
-| `HTTP_PROXY_AUTH_PASS` | `auth.pass`          |
+Instead of taking the plain string value, the variable will then be resolved against your `.env` file.
+
+Example `configuration` file:
+
+```yaml
+server:
+  customMiddleware:
+    # proxy using .env credentials
+    - name: ui5-middleware-http-proxy
+      mountPath: /service
+      afterMiddleware: compression
+      configuration:
+        debug: true
+        baseUrl: https://services.odata.org
+        path: /V2/Northwind/Northwind.svc
+        secure: false
+        auth:
+          user: env:MY_HTTP_PROXY_AUTH_USER
+          pass: env:MY_HTTP_PROXY_AUTH_PASS
+```
 
 Example `.env` file:
 
 ```shell
-HTTP_PROXY_AUTH_USER=kratos
-HTTP_PROXY_AUTH_PASS=atreus
+MY_HTTP_PROXY_AUTH_USER=kratos
+MY_HTTP_PROXY_AUTH_PASS=atreus
 ```
+
+##### NOTE:
+This is a breaking API change as of version `^2.0.0`.
+
+Version `^1.1.0` only supports static `.env` variables:
+
+- `HTTP_PROXY_AUTH_USER`
+- `HTTP_PROXY_AUTH_PASS`
 
 ## Example app
 
